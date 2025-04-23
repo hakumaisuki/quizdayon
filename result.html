@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>クイズ結果発表</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #fff0f5;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .score {
+      font-size: 2em;
+      color: #4caf50;
+    }
+    .rate {
+      font-size: 1.5em;
+      color: #2196f3;
+    }
+    .comment {
+      font-size: 1.8em;
+      margin-top: 30px;
+      color: #ff69b4;
+    }
+    button {
+      margin-top: 40px;
+      padding: 12px 24px;
+      font-size: 1.2em;
+      background-color: #ffb6c1;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff80ab;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 結果発表 🎉</h1>
+  <div class="score" id="score"></div>
+  <div class="rate" id="rate"></div>
+  <div class="comment" id="comment"></div>
+  <button onclick="location.href='index.html'">もう一度チャレンジ</button>
+
+  <script>
+    const score = parseInt(localStorage.getItem("score")) || 0;
+    const totalTime = localStorage.getItem("totalTime");
+    const rate = Math.round((score / 10) * 100);
+
+    document.getElementById("score").textContent = `正解数：${score} / 10`;
+    document.getElementById("rate").textContent = `正答率：${rate}%（所要時間：${totalTime}秒）`;
+
+    let comment = "";
+    if (score === 10) {
+      comment = "🌟 パーフェクト！すごすぎる！";
+    } else if (score >= 7) {
+      comment = "✨ ナイスチャレンジ！あと少しで満点！";
+    } else if (score >= 4) {
+      comment = "👍 がんばったね！次はもっといける！";
+    } else {
+      comment = "💪 次はもっと正解しよう！応援してるよ！";
+    }
+
+    document.getElementById("comment").textContent = comment;
+  </script>
+</body>
+</html>

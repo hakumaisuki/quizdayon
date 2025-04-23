@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>10問クイズゲーム</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="quiz-container">
+    <p id="timer" style="font-weight: bold; color: #d6336c;"></p>
+    <h1>クイズに挑戦！</h1>
+    <p id="question">問題がここに表示されます</p>
+    <div class="answers">
+      <button class="answer-button">A</button>
+      <button class="answer-button">B</button>
+      <button class="answer-button">C</button>
+    </div>
+    <p id="result"></p>
+    <p id="explanation" style="font-style: italic;"></p>
+    <p id="comment"></p>
+    <button id="reset-btn" onclick="resetQuiz()" style="display:none;">🔁 もう一度チャレンジ</button>
+    <button id="next-btn" onclick="nextQuestion()">次の問題 ▶</button>
+  </div>
+
+  <script src="js/quiz.js"></script>
+</body>
+</html>
